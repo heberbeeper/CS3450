@@ -1,7 +1,5 @@
 #pragma once
-
 #include <iostream>
-using namespace std;
 
 class WeaponBehavior {
 public:
@@ -17,7 +15,7 @@ public:
 	}
 
 	void useWeapon() const override {
-		cout << "cutting with a knife\n";
+		std::cout << "cutting with a knife\n";
 	}
 };
 
@@ -27,7 +25,7 @@ public:
 		return "Bow and Arrow";
 	}
 	void useWeapon() const override {
-		cout << "shooting an arrow with a bow\n";
+		std::cout << "shooting an arrow with a bow\n";
 	}
 };
 
@@ -37,7 +35,7 @@ public:
 		return "Axe";
 	}
 	void useWeapon() const override {
-		cout << "chopping with an axe\n";
+		std::cout << "chopping with an axe\n";
 	}
 };
 
@@ -47,6 +45,6 @@ public:
 		return "Sword";
 	}
 	void useWeapon() const override {
-		cout << "swinging a sword\n";
+		std::cout << "swinging a sword\n";
 	}
 };

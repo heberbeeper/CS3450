@@ -7,7 +7,7 @@ public:
 	virtual ~Character() = default;
 
 	void setWeapon(WeaponBehavior& newWeapon) {
-		cout << "Changing weapon...\n";
+		std::cout << "Changing weapon...\n";
 		weapon = &newWeapon;
 	}
 
@@ -15,7 +15,7 @@ public:
 
 protected:
 	void useWeapon() const {
-		cout << "Using weapon: " << weapon->getName() << "\n";
+		std::cout << "Using weapon: " << weapon->getName() << "\n";
 		if (weapon != nullptr) {
 			weapon->useWeapon();
 		}
@@ -30,7 +30,7 @@ public:
 	using Character::Character;
 
 	void fight() const override {
-		cout << "The queen fights: \n";
+		std::cout << "The queen fights: \n";
 		useWeapon();
 	}
 };
@@ -40,7 +40,7 @@ public:
 	using Character::Character;
 
 	void fight() const override {
-		cout << "The king fights: \n";
+		std::cout << "The king fights: \n";
 		useWeapon();
 	}
 };
@@ -50,7 +50,7 @@ public:
 	using Character::Character;
 
 	void fight() const override {
-		cout << "The troll fights: \n";
+		std::cout << "The troll fights: \n";
 		useWeapon();
 	}
 };
@@ -60,7 +60,7 @@ public:
 	using Character::Character;
 
 	void fight() const override {
-		cout << "The knight fights: \n";
+		std::cout << "The knight fights: \n";
 		useWeapon();
 	}
 };

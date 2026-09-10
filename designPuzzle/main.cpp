@@ -13,10 +13,13 @@ int main() {
 	Knight knight(sword);
 
 	queen.fight();
+	cout << "\n";
 	king.fight();
+	cout << "\n";
 	troll.fight();
+	cout << "\n";
 	knight.fight();
-
+	cout << "\n";
 	// A character can change strategies at runtime.
 	knight.setWeapon(bow);
 	knight.fight();

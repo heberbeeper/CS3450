@@ -1,5 +1,6 @@
 #include "weaponBehavior.h"
 #include "character.h"
+using namespace std;
 
 int main() {
 	KnifeBehavior knife;
@@ -23,6 +24,7 @@ int main() {
 	// A character can change strategies at runtime.
 	knight.setWeapon(bow);
 	knight.fight();
+	cout << "\n";
 
 	return 0;
 }

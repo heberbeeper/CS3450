@@ -18,10 +18,10 @@ link and try it in codescapes:
 
 https://github.com/heberbeeper/CS3450/tree/main
 
-Click on the green button that says "<> Code" and it will 
-open up a VScode virtual workspace. After you are in the 
-virtual workspace, run the command to go into the designPuzzle
-folder:
+Click on the green button that says "<> Code" then "create 
+codespace on main" and it will open up a VScode virtual workspace.
+After you are in the virtual workspace, run this command to go 
+into the designPuzzle folder:
 
 cd designPuzzle/
 

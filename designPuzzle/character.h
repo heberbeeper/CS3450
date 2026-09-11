@@ -3,26 +3,26 @@
 
 class Character {
 public:
-	explicit Character(WeaponBehavior& weapon) : weapon(&weapon) {}
+	explicit Character(std::unique_ptr<WeaponBehavior> weapon) : weapon(std::move(weapon)) {};
 	virtual ~Character() = default;
 
-	void setWeapon(WeaponBehavior& newWeapon) {
+	void setWeapon(std::unique_ptr<WeaponBehavior> newWeapon) {
 		std::cout << "Changing weapon...\n";
-		weapon = &newWeapon;
+		weapon = std::move(newWeapon);
 	}
 
 	virtual void fight() const = 0;
 
 protected:
 	void useWeapon() const {
-		std::cout << "Using weapon: " << weapon->getName() << "\n";
 		if (weapon != nullptr) {
+			std::cout << "Using weapon: " << weapon->getName() << "\n";
 			weapon->useWeapon();
 		}
 	}
 
 private:
-	WeaponBehavior* weapon;
+	std::unique_ptr<WeaponBehavior> weapon;
 };
 
 class Queen : public Character {

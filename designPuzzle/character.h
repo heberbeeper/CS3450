@@ -1,5 +1,6 @@
 #pragma once
 #include "weaponBehavior.h"
+#include <memory>
 
 class Character {
 public:

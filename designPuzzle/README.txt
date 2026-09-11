@@ -32,6 +32,16 @@ You can then run this command in the bash terminal:
 You should be able to see the print statements that trace
 the execution of each method.
 
+IF ALL OF THAT DOES NOT WORK: 
+
+Run this in the terminal to recompile:
+
+g++ -std=c++17 main.cpp -o designPuzzle
+
+Then re-run this command to run the program:
+
+.\designPuzzle
+
 NOTE:
 The designPuzzle executable is compiled using the c++17 standard 
 language.

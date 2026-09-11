@@ -3,10 +3,10 @@
 using namespace std;
 
 int main() {
-	KnifeBehavior knife;
-	BowAndArrowBehavior bow;
-	AxeBehavior axe;
-	SwordBehavior sword;
+	// KnifeBehavior knife;
+	// BowAndArrowBehavior bow;
+	// AxeBehavior axe;
+	// SwordBehavior sword;
 
 	Queen queen(make_unique<KnifeBehavior>());
 	King king(make_unique<BowAndArrowBehavior>());

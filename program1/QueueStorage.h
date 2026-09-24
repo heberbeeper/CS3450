@@ -13,6 +13,7 @@ public:
 
     virtual void addBack(const T& value) = 0;
     virtual const T& front() const = 0;
+    virtual const T& peekLast() const = 0;
     virtual void removeFront() = 0;
     virtual std::size_t size() const = 0;
     virtual void clear() = 0;
@@ -43,6 +44,13 @@ public:
         }
 
         data.erase(data.begin());
+    }
+    const T& peekLast() const override {
+        if (data.empty()) {
+            throw std::out_of_range("Storage is empty");
+        }
+
+        return data.back();
     }
 
     std::size_t size() const override {
@@ -79,6 +87,13 @@ public:
         }
 
         data.pop_front();
+    }
+    const T& peekLast() const override {
+        if (data.empty()) {
+            throw std::out_of_range("Storage is empty");
+        }
+
+        return data.back();
     }
 
     std::size_t size() const override {

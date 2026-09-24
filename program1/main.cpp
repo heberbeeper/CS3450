@@ -44,6 +44,9 @@ int main() {
 
     q.add(94);
     q.add(95);
+    q.peekLast();
+    // const int& lastElement = q.peekLast(); // This should return 95, but not remove it.
+    // assert(lastElement == 95);
 
     std::cout << "Integer queue: ";
     displayAndEmptyQueue(q);
@@ -81,6 +84,13 @@ int main() {
     q2.clear();
 
     assert(q2.size() == 0);
+
+    q.add(91);
+    q.add(92);
+    q.add(94);
+
+    assert(q.peekLast() == 94);
+    assert(q.size() == 3);
 
     std::cout << "All tests passed.\n";
 

@@ -56,7 +56,14 @@ public:
 
         impl->removeFront();
     }
+    const T& peekLast() const {
+        if (impl->size() == 0) {
+            throw std::out_of_range("Queue is empty");
+        }
 
+        return impl->peekLast();
+    }
+    
     // Requirement 4
     std::size_t size() const {
         return impl->size();

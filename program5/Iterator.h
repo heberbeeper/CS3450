@@ -1,3 +1,4 @@
+//Defines the common iterator interface and its four operations
 #pragma once
 
 template<typename T>

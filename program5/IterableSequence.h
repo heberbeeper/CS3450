@@ -1,3 +1,4 @@
+// Combines the iterable and sequence interfaces
 #pragma once
 
 #include "Iterable.h"

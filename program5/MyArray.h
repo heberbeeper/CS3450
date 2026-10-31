@@ -1,7 +1,7 @@
+// Implements fixed-capacity array storage
 #pragma once
 
 #include "IterableSequence.h"
-#include "MyIterator.h"
 #include <memory>
 #include <stdexcept>
 
@@ -22,11 +22,6 @@ class MyArray : public IterableSequence<T> {
 
         std::unique_ptr<Iterator<T>> getIterator() override;
 };
-
-template<typename T>
-std::unique_ptr<Iterator<T>> MyArray<T>::getIterator() {
-    return std::make_unique<MyIterator<T>>(*this);
-}
 
 template<typename T>
 MyArray<T>::MyArray(int capacity) : count(0), maxCapacity(capacity) {
@@ -64,4 +59,11 @@ T MyArray<T>::get(int index) {
     }
     
     return data[index];
+}
+
+#include "MyIterator.h"
+
+template<typename T>
+std::unique_ptr<Iterator<T>> MyArray<T>::getIterator() {
+    return std::make_unique<MyIterator<T>>(*this);
 }

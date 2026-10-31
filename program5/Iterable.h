@@ -1,3 +1,4 @@
+//Defines getIterator(), which supplies an iterator
 #pragma once
 
 #include "Iterator.h"

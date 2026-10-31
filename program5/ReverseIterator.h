@@ -1,3 +1,4 @@
+//Decorates an iterator to return elements in reverse order
 #pragma once
 #include "Iterator.h"
 #include <memory>
@@ -17,7 +18,7 @@ class ReverseIterator : public Iterator<T> {
             if (!wrapped) throw std::invalid_argument("Iterator cannot be null");
             wrapped->first();
             while (!wrapped->isDone()) {
-                items.push_back(wrapped->current());
+                items.push_back(wrapped->current()); //This shows the reversing iterator collects elements from wrapped iterator    
                 wrapped->next();
             }
             first();

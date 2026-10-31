@@ -1,3 +1,4 @@
+// Defines how to add and retrieve elements and check size/capacity
 #pragma once
 
 template <typename T>

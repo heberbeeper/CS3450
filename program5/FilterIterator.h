@@ -1,4 +1,4 @@
-
+//Decorates an iterator to skip rejected elements
 #pragma once
 
 #include "Iterator.h"
@@ -11,7 +11,7 @@ template<typename T>
 class FilterIterator : public Iterator<T> {
 private:
     std::unique_ptr<Iterator<T>> wrapped;
-    std::function<bool(const T&)> predicate;
+    std::function<bool(const T&)> predicate; //decides whether that element is accepted.
 
     void skipRejected();
 
@@ -22,9 +22,9 @@ public:
     );
 
     void first() override;
-    void next() override;
-    bool isDone() override;
-    T current() override;
+    void next() override; //advances the underlying iterator when an element is rejected
+    bool isDone() override; //checks the underlying iterator
+    T current() override; //gets the element from the underlying iterator
 };
 
 template<typename T>
@@ -45,10 +45,11 @@ FilterIterator<T>::FilterIterator(
     first();
 }
 
+//pulls from the iterator it wraps
 template<typename T>    
 void FilterIterator<T>::skipRejected() {
 
-    while (!wrapped->isDone() && !predicate(wrapped->current())) {
+    while (!wrapped->isDone() && !predicate(wrapped->current())) { //This shows that the filter gets its data through the wrapped iterator interface
         wrapped->next();
     }
 }

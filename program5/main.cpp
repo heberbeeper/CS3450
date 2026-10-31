@@ -1,6 +1,7 @@
 #include "MyArray.h"
 #include "FilterIterator.h"
 #include "ReverseIterator.h"
+#include "DistinctIterator.h"
 #include <cassert>
 #include <iostream>
 #include <memory>
@@ -29,12 +30,16 @@ std::vector<T> collect(Iterator<T>& it) {
     return result;
 }
 
+//This Distinct Iterator skips any item equal to one it has already yielded and chain it with ReverseIterator
+
+
 int main() {
     MyArray<int> numbers(6);
     for (int i = 1; i <= 6; ++i) numbers.add(i);
     auto even = [](const int& n) { return n % 2 == 0; };
     auto gtThree = [](const int& n) { return n > 3; };
     auto none = [](const int& n) { return n > 100; };
+    auto filter = [](const int& n) {return (n % 2) && (n > 3); };
 
     std::cout << "Original sequence: ";
     auto original = numbers.getIterator();
@@ -62,6 +67,25 @@ int main() {
     ReverseIterator<int> reverseFiltered(std::move(filtered));
     printIterator(reverseFiltered);
     assert((collect(reverseFiltered) == std::vector<int>{6, 4, 2}));
+
+    std::cout << "5. Distinct(Filter) iterator skips any \n equal items and reverse iterator: ";
+    MyArray<int> numbers2(7);
+
+    numbers2.add(1);
+    numbers2.add(2);
+    numbers2.add(2);
+    numbers2.add(3);
+    numbers2.add(1);
+    numbers2.add(4);
+    numbers2.add(3);
+
+    auto distinct = std::make_unique<DistinctIterator<int>>(
+        numbers2.getIterator()
+    );
+
+    ReverseIterator<int> reversed(std::move(distinct));
+
+    printIterator(reversed);
 
     MyArray<int> endReject(4);
     for (int n : {2, 4, 5, 7}) endReject.add(n);

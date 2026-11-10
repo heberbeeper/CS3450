@@ -35,19 +35,19 @@ int main() {
         auto userdb = std::make_shared<Database>("userdb.txt");
 
         // 1. Database without proxies
-        std::cout << "Database\n";
+        std::cout << "---Database---\n";
         test(*db);
 
         // 2. SecureDB wrapping Database
         auto secure = std::make_shared<SecureDB>(db, userdb);
 
-        std::cout << "SecureDB\n";
+        std::cout << "---SecureDB---\n";
         test(*secure);
 
         // 3. CacheDB wrapping SecureDB
         auto cache = std::make_shared<CacheDB>(secure);
 
-        std::cout << "CacheDB -> SecureDB\n";
+        std::cout << "---CacheDB -> SecureDB---\n";
         test(*cache);
 
         std::cout << "Cache contents: "
@@ -60,7 +60,7 @@ int main() {
             reverseCache, userdb
         );
 
-        std::cout << "SecureDB -> CacheDB\n";
+        std::cout << "---SecureDB -> CacheDB---\n";
         test(*reverseSecure);
 
         std::cout << "Cache contents: "

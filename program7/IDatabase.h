@@ -1,3 +1,8 @@
+// Central Participant:
+// Shared interface for the real database and both proxies.
+// The client can call any implementation through IDatabase
+// without knowing its concrete type.
+
 #pragma once
 
 #include <string>

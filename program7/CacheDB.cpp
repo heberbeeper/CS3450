@@ -24,8 +24,8 @@ bool CacheDB::exists(const std::string& key) {
 // Retrieve a value, using the cache when possible
 std::string CacheDB::get(const std::string& key) {
 
-    // Check if the key is already cached
-    auto it = cache.find(key);
+    // Check if the key is already cached. 
+    auto it = cache.find(key);  //this is the telling line where it decides to forward the call or answer it itself
 
     if (it != cache.end()) {
         // Cache hit
